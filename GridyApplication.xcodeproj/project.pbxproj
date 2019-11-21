@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8DEE1806237EA62000F4E497 /* PickButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DEE1805237EA62000F4E497 /* PickButton.xib */; };
+		8DF1F459238554BF00B88649 /* PuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF1F458238554BF00B88649 /* PuzzleViewController.swift */; };
 		8DFBFBE3237D62E500DAE47F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFBFBE2237D62E500DAE47F /* AppDelegate.swift */; };
 		8DFBFBE5237D62E500DAE47F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFBFBE4237D62E500DAE47F /* ViewController.swift */; };
 		8DFBFBE8237D62E500DAE47F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DFBFBE6237D62E500DAE47F /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		8DEE1805237EA62000F4E497 /* PickButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickButton.xib; sourceTree = "<group>"; };
+		8DF1F458238554BF00B88649 /* PuzzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleViewController.swift; sourceTree = "<group>"; };
 		8DFBFBDF237D62E500DAE47F /* GridyApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GridyApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DFBFBE2237D62E500DAE47F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DFBFBE4237D62E500DAE47F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			children = (
 				8DFBFBE4237D62E500DAE47F /* ViewController.swift */,
 				8DFBFBF5237D710100DAE47F /* SelectedImageViewController.swift */,
+				8DF1F458238554BF00B88649 /* PuzzleViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				8DFBFBFC237D72B900DAE47F /* BoarderImage.swift in Sources */,
 				8DFBFBF6237D710100DAE47F /* SelectedImageViewController.swift in Sources */,
 				8DFBFBF8237D716500DAE47F /* PickButton.swift in Sources */,
+				8DF1F459238554BF00B88649 /* PuzzleViewController.swift in Sources */,
 				8DFBFBE3237D62E500DAE47F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,7 +15,7 @@ import AVFoundation
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-
+    
     @IBOutlet weak var pickButton: PickButton!
     @IBOutlet weak var cameraButton: PickButton!
     @IBOutlet weak var libraryButton: PickButton!
@@ -44,7 +44,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
-
+    
     
     @IBAction func cameraButtonPressed(_ sender: AnyObject) {
         cameraButton.animatedButtonPressed()
@@ -197,12 +197,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "selectedImage" {
-            let destinationVC = segue.destination as! SelectedImageViewController
-            destinationVC.selectedImage = pickedImage
-        }
+        if  segue.identifier == "selectedImage" {
+                    let destinationVC = segue.destination as! SelectedImageViewController
+                    destinationVC.selectedImage = pickedImage
     }
-
-
+    }
+    
     
 }

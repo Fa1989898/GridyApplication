@@ -82,17 +82,17 @@
                         <outlet property="cameraButton" destination="d5J-iL-nGD" id="MtS-f8-vkL"/>
                         <outlet property="libraryButton" destination="6Xx-YJ-aIO" id="Om3-me-hE0"/>
                         <outlet property="pickButton" destination="l5n-Fh-jL1" id="4ao-Yq-UWq"/>
-                        <segue destination="ktw-TO-ly7" kind="show" identifier="selectedImage" id="tPY-xr-aIf"/>
+                        <segue destination="ktw-TO-ly7" kind="show" identifier="selectedImage" id="iqR-33-unG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-446.37681159420293" y="-4.0178571428571423"/>
+            <point key="canvasLocation" x="-429" y="-4"/>
         </scene>
         <!--Selected Image -->
         <scene sceneID="UE7-6Q-Jbw">
             <objects>
-                <viewController title="Selected Image " id="ktw-TO-ly7" sceneMemberID="viewController">
+                <viewController title="Selected Image " id="ktw-TO-ly7" customClass="SelectedImageViewController" customModule="GridyApplication" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ocK-y0-yZu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -122,10 +122,29 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sBP-0Z-OSQ"/>
                     </view>
+                    <connections>
+                        <outlet property="pickedImageView" destination="bjg-zm-QKo" id="aZa-Wz-Deb"/>
+                        <segue destination="k8i-jy-Blj" kind="show" identifier="puzzleImage" id="ReA-Qi-ite"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OnW-de-OPn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="340.57971014492756" y="-4.0178571428571423"/>
+            <point key="canvasLocation" x="364" y="-4"/>
+        </scene>
+        <!--Puzzle View Controller-->
+        <scene sceneID="4wo-6O-x6V">
+            <objects>
+                <viewController id="k8i-jy-Blj" customClass="PuzzleViewController" customModule="GridyApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3gN-u0-qSi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="E7u-zI-RfF"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iPi-Pl-aNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1188" y="-4"/>
         </scene>
     </scenes>
     <resources>
