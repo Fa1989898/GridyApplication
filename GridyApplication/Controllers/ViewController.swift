@@ -146,6 +146,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(imagePicker, animated: true, completion: nil)
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        //got an image
+        picker.dismiss(animated: true, completion: nil)
+        let newImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        processPicked(image: newImage)
+    }
+    
+    func processPicked(image: UIImage?) {
+        if let newImage = image {
+            pickedImage = newImage
+            performSegue(withIdentifier: "selectedImage", sender: nil)
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    
     func troubleAlert(message: String?) {
         let alertController = UIAlertController(title: "Error", message: message , preferredStyle: .alert)
         let OKAction = UIAlertAction(title: "OK", style: .cancel)
@@ -196,12 +217,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if  segue.identifier == "selectedImage" {
-                    let destinationVC = segue.destination as! SelectedImageViewController
-                    destinationVC.selectedImage = pickedImage
-    }
-    }
     
-    
+  
 }
+
+
+
+
+

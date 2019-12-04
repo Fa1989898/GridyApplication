@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -104,6 +103,9 @@
                                 <state key="normal" title="Start">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="selectedImagePressed:" destination="ktw-TO-ly7" eventType="touchUpInside" id="5Eo-mB-51x"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bjg-zm-QKo" userLabel="Picked Image View" customClass="BorderImageView" customModule="GridyApplication" customModuleProvider="target">
                                 <rect key="frame" x="20" y="261" width="374" height="374"/>
@@ -124,7 +126,7 @@
                     </view>
                     <connections>
                         <outlet property="pickedImageView" destination="bjg-zm-QKo" id="aZa-Wz-Deb"/>
-                        <segue destination="k8i-jy-Blj" kind="show" identifier="puzzleImage" id="ReA-Qi-ite"/>
+                        <segue destination="eFM-k5-9SJ" kind="show" identifier="puzzleImage" id="xpK-fn-Acn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OnW-de-OPn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -132,19 +134,56 @@
             <point key="canvasLocation" x="364" y="-4"/>
         </scene>
         <!--Puzzle View Controller-->
-        <scene sceneID="4wo-6O-x6V">
+        <scene sceneID="SBD-fe-b5c">
             <objects>
-                <viewController id="k8i-jy-Blj" customClass="PuzzleViewController" customModule="GridyApplication" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3gN-u0-qSi">
+                <viewController id="eFM-k5-9SJ" customClass="PuzzleViewController" customModule="GridyApplication" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5jZ-Pa-zqn" customClass="Puzzle">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZEN-wY-XtE">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sR0-A3-bUI">
+                                    <size key="itemSize" width="150" height="150"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="hxS-oM-sFZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                        <color key="backgroundColor" red="0.60024505849999998" green="0.82279282809999998" blue="0.6156570911" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <size key="customSize" width="150" height="150"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="eFM-k5-9SJ" id="GPQ-y9-zWh"/>
+                                    <outlet property="delegate" destination="eFM-k5-9SJ" id="ONg-T2-RcS"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="E7u-zI-RfF"/>
+                        <constraints>
+                            <constraint firstItem="Zg1-Ts-3Zg" firstAttribute="bottom" secondItem="ZEN-wY-XtE" secondAttribute="bottom" id="2Rg-jr-lnU"/>
+                            <constraint firstItem="Zg1-Ts-3Zg" firstAttribute="trailing" secondItem="ZEN-wY-XtE" secondAttribute="trailing" id="QqM-NH-IE1"/>
+                            <constraint firstItem="ZEN-wY-XtE" firstAttribute="top" secondItem="5jZ-Pa-zqn" secondAttribute="top" id="fq5-Vt-DAg"/>
+                            <constraint firstItem="ZEN-wY-XtE" firstAttribute="leading" secondItem="Zg1-Ts-3Zg" secondAttribute="leading" id="nDB-8z-Z9U"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Zg1-Ts-3Zg"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="5jZ-Pa-zqn" id="L2O-O0-gO1"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iPi-Pl-aNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z1t-V7-Ccn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1188" y="-4"/>
+            <point key="canvasLocation" x="1157" y="-3"/>
         </scene>
     </scenes>
     <resources>
