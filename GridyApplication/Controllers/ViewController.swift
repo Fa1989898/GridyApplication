@@ -216,9 +216,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.performSegue(withIdentifier: "selectedImage", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "selectedImage" {
+            let destinationVC = segue.destination as! SelectedImageViewController
+            destinationVC.selectedImage = pickedImage
+        }
+    }
     
     
-  
 }
 
 
