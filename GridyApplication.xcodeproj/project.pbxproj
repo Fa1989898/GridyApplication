@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D65F620239AF9B500B769FB /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D65F61F239AF9B500B769FB /* CollectionViewCell.swift */; };
+		8D65F622239AF9C500B769FB /* CollectionViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D65F621239AF9C500B769FB /* CollectionViewCell2.swift */; };
 		8DEE1806237EA62000F4E497 /* PickButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DEE1805237EA62000F4E497 /* PickButton.xib */; };
 		8DF1F459238554BF00B88649 /* PuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF1F458238554BF00B88649 /* PuzzleViewController.swift */; };
 		8DFBFBE3237D62E500DAE47F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFBFBE2237D62E500DAE47F /* AppDelegate.swift */; };
@@ -16,10 +18,12 @@
 		8DFBFBED237D62E800DAE47F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DFBFBEB237D62E800DAE47F /* LaunchScreen.storyboard */; };
 		8DFBFBF6237D710100DAE47F /* SelectedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFBFBF5237D710100DAE47F /* SelectedImageViewController.swift */; };
 		8DFBFBF8237D716500DAE47F /* PickButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFBFBF7237D716500DAE47F /* PickButton.swift */; };
-		8DFBFBFC237D72B900DAE47F /* BoarderImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFBFBFB237D72B900DAE47F /* BoarderImage.swift */; };
+		8DFBFBFC237D72B900DAE47F /* BorderImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFBFBFB237D72B900DAE47F /* BorderImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D65F61F239AF9B500B769FB /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		8D65F621239AF9C500B769FB /* CollectionViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell2.swift; sourceTree = "<group>"; };
 		8DEE1805237EA62000F4E497 /* PickButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickButton.xib; sourceTree = "<group>"; };
 		8DF1F458238554BF00B88649 /* PuzzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleViewController.swift; sourceTree = "<group>"; };
 		8DFBFBDF237D62E500DAE47F /* GridyApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GridyApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,7 +35,7 @@
 		8DFBFBEE237D62E900DAE47F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DFBFBF5237D710100DAE47F /* SelectedImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedImageViewController.swift; sourceTree = "<group>"; };
 		8DFBFBF7237D716500DAE47F /* PickButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickButton.swift; sourceTree = "<group>"; };
-		8DFBFBFB237D72B900DAE47F /* BoarderImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoarderImage.swift; sourceTree = "<group>"; };
+		8DFBFBFB237D72B900DAE47F /* BorderImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +83,9 @@
 			children = (
 				8DEE1805237EA62000F4E497 /* PickButton.xib */,
 				8DFBFBF7237D716500DAE47F /* PickButton.swift */,
-				8DFBFBFB237D72B900DAE47F /* BoarderImage.swift */,
+				8DFBFBFB237D72B900DAE47F /* BorderImage.swift */,
+				8D65F621239AF9C500B769FB /* CollectionViewCell2.swift */,
+				8D65F61F239AF9B500B769FB /* CollectionViewCell.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -176,9 +182,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DFBFBE5237D62E500DAE47F /* ViewController.swift in Sources */,
-				8DFBFBFC237D72B900DAE47F /* BoarderImage.swift in Sources */,
+				8DFBFBFC237D72B900DAE47F /* BorderImage.swift in Sources */,
 				8DFBFBF6237D710100DAE47F /* SelectedImageViewController.swift in Sources */,
+				8D65F620239AF9B500B769FB /* CollectionViewCell.swift in Sources */,
 				8DFBFBF8237D716500DAE47F /* PickButton.swift in Sources */,
+				8D65F622239AF9C500B769FB /* CollectionViewCell2.swift in Sources */,
 				8DF1F459238554BF00B88649 /* PuzzleViewController.swift in Sources */,
 				8DFBFBE3237D62E500DAE47F /* AppDelegate.swift in Sources */,
 			);

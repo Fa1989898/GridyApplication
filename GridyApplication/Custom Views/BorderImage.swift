@@ -1,5 +1,5 @@
 //
-//  BoarderImageView.swift
+//  BorderImageView.swift
 //  Gridy
 //
 //  Created by Fatima Zakaria on 11/11/2019.

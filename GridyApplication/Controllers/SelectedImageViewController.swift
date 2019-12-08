@@ -20,6 +20,8 @@ class SelectedImageViewController: UIViewController, UINavigationControllerDeleg
     public var selectedImage: UIImage?
     public var gridDimension = 4
     
+    var initialImageViewOffset = CGPoint()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
@@ -34,21 +36,8 @@ class SelectedImageViewController: UIViewController, UINavigationControllerDeleg
                     animations: {
                         let backgroundImageView = UIImageView.init(frame: self.view.frame)
                         backgroundImageView.image = selectedImage
-                        let currentFilter = CIFilter(name:"CIGaussianBlur")
-                        let beginImage = CIImage(image: backgroundImageView.image!)
-                        currentFilter!.setValue(beginImage, forKey: kCIInputImageKey)
-                        currentFilter!.setValue(10, forKey: kCIInputRadiusKey)
-                        
-                        let cropFilter = CIFilter(name: "CICrop")
-                        cropFilter!.setValue(currentFilter!.outputImage, forKey: kCIInputImageKey)
-                        cropFilter!.setValue(CIVector(cgRect: beginImage!.extent), forKey: "inputRectangle")
-                        
-                        //let output = cropFilter!.outputImage
-                        //                        let cgimg = self.context.createCGImage(output!, from: output!.extent)
-                        //                        let processedImage = UIImage(cgImage: cgimg!)
-                        //                        backgroundImageView.image = processedImage
-                        //                        backgroundImageView.contentMode = .scaleAspectFill
-                        //                        self.view.insertSubview(backgroundImageView, at: 0)
+                        backgroundImageView.contentMode = .scaleAspectFill
+                        self.view.insertSubview(backgroundImageView, at: 0)
                 } ,
                     completion: nil
                 )
@@ -58,10 +47,12 @@ class SelectedImageViewController: UIViewController, UINavigationControllerDeleg
     }
     
     
+    
     @IBAction func selectedImagePressed(sender: Any) {
         self.performSegue(withIdentifier: "puzzleImage", sender: self)
+        pickedImageView.transform = .identity
     }
-
+    
     
     func configure() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(changeImage(_:)))
@@ -79,6 +70,7 @@ class SelectedImageViewController: UIViewController, UINavigationControllerDeleg
         let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(scaleImageView(_:)))
         pinchGestureRecognizer.delegate = self
         pickedImageView.addGestureRecognizer(pinchGestureRecognizer)
+        
     }
     
     
@@ -87,15 +79,25 @@ class SelectedImageViewController: UIViewController, UINavigationControllerDeleg
     }
     
     @objc func moveImageView(_ sender: UIPanGestureRecognizer) {
-        print("moving")
+        let translation = sender.translation(in: pickedImageView.superview)
+        
+        if sender.state == .began {
+            initialImageViewOffset = pickedImageView.frame.origin
+        }
+        
+        let position = CGPoint(x: translation.x + initialImageViewOffset.x - pickedImageView.frame.origin.x, y: translation.y + initialImageViewOffset.y - pickedImageView.frame.origin.y)
+        
+        pickedImageView.transform = pickedImageView.transform.translatedBy(x: position.x, y: position.y)
     }
     
     @objc func rotateImageView(_ sender: UIRotationGestureRecognizer) {
-        print("rotating")
+        pickedImageView.transform = pickedImageView.transform.rotated(by: sender.rotation)
+        sender.rotation = 0
     }
     
     @objc func scaleImageView(_ sender: UIPinchGestureRecognizer) {
-        print("scaling")
+        pickedImageView.transform = pickedImageView.transform.scaledBy(x: sender.scale, y: sender.scale)
+        sender.scale = 1
     }
     
     
@@ -120,8 +122,6 @@ class SelectedImageViewController: UIViewController, UINavigationControllerDeleg
     }
     
     
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "puzzleImage" {
             let destinationVC = segue.destination as! PuzzleViewController
@@ -129,8 +129,5 @@ class SelectedImageViewController: UIViewController, UINavigationControllerDeleg
             destinationVC.gridDimension = gridDimension
         }
     }
-    
- 
-    
-    
 }
+
